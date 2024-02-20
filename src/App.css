@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #77d6ac;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  color: #965c37;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+  /* text-shadow: 2px 2px 4px #ffffff; */
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  color: #000000;
+  font-size: 0.45em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.board-container {
+  display: grid;
+  align-items: center;
+  /*justify-content: center;*/
+  margin-top: 10%;
+  background-color: #965c37;
+
+  /* background-color: #595959;*/
+}
+
+.rows-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.cell-toTry {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border: solid red 1px;
+}
+
+.cell-result {
+  display: grid;
+  border: solid blue 1px;
+}
+
+.colors-container {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border: solid green 1px;
+}
+
+.colors-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem 0 1rem 0;
+}
+
+.circle-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 1) 0px 8px 15px;
+}
+
+.circle-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.648) 0px 8px 15px;
+  transform: scale(1.15);
+  transition: 0.3s;
+  cursor: pointer;
 }
