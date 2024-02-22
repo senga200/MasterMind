@@ -10,6 +10,7 @@ function Board() {
       <SecretCode />
       <Rows />
       <Colors />
+
       <Buttons />
     </div>
   );
