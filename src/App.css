@@ -20,6 +20,11 @@ h1 {
   padding: 0;
 }
 
+.mobile {
+  display: none;
+
+}
+
 .board-container {
   display: grid;
   align-items: center;
@@ -43,14 +48,28 @@ h1 {
   padding: 0;
 }
 
+/************* SECRET CODE *************/
+
+.secretCode-container {
+
+  padding: 1rem 0 1rem 0;
+  border: #000000 1px solid;
+}
+
+.secretCode {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 6.2rem 0 2.6rem;
+
+}
+
 
 
 
 /************* COLORS TO CHOOSE *************/
 .colors-container {
   display: grid;
-
-  border: solid green 1px;
 }
 
 .colors-element {
@@ -80,6 +99,8 @@ h1 {
 .circle-container:active {
   transform: scale(1.05);
   transition: 0.3s;
+  border: #000000 5px solid;
+
 }
 
 /*********** ROW TO TRY ************/
@@ -134,6 +155,18 @@ h1 {
 
 /*********** MEDIA QUERIES ************/
 @media (max-width: 768px) {
+
+  .title h1 {
+    display: none;
+
+  }
+
+  .mobile {
+    display: block;
+    font-size: 10px;
+    color: #000000;
+  }
+
   .board-container {
     width: 20rem;
 
