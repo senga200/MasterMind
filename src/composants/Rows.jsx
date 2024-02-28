@@ -6,40 +6,64 @@ import { useAppContext } from "../Context";
 import { useState } from "react";
 
 function Rows({ color }) {
+  // const colors = [
+  //   "#94000D",
+  //   "blue",
+  //   "green",
+  //   "yellow",
+  //   "#FB4901",
+  //   "#4C4C4C",
+  //   "white",
+  //   "#D810AD",
+  // ];
   const numbers = Array.from({ length: 10 }, (_, index) => index + 1);
   const { appState, dispatch } = useAppContext();
   //récupérer la couleur gardée dans le state
-  //etat local pour gérer l'affichage de circle ou emptyCircle pour chaque cellule
-  const [cells, setCells] = useState(Array(10).fill(false));
+  // Initialiser l'état pour gérer 10 lignes de 4 cellules chacune
+  const [cells, setCells] = useState(
+    Array.from({ length: 10 }, () => Array(4).fill(false))
+  );
 
-  const handleClick = (index) => {
+  const handleClick = (rowIndex, cellIndex) => {
     alert("click");
+    // Mettre à jour l'état de la cellule spécifique dans la ligne spécifique avec la couleur sélectionnée
+    setCells(
+      cells.map((row, i) =>
+        i === rowIndex
+          ? row.map((cell, j) =>
+              j === cellIndex
+                ? { color: appState.selectedColor, active: true }
+                : cell
+            )
+          : row
+      )
+    );
 
     //afficher la couleur gardée dans le state sur la cellule cliquée
     dispatch({ type: "SET_SELECTED_COLOR", payload: color });
-    setCells(cells.map((cell, i) => (i === index ? true : cell)));
-    console.log("color cell" + appState.selectedColor);
-    console.log("index" + index);
-  };
 
+    console.log("color cell" + appState.selectedColor);
+    console.log("rowIndex" + rowIndex);
+    console.log("cellIndex" + cellIndex);
+  };
   return (
     <div className="rows-container">
       <div className="rows-toTry">
-        {numbers.map((number, index) => (
-          <div
-            key={`toTry-${number}`}
-            className="cell-toTry"
-            onClick={() => handleClick(index)}
-          >
+        {numbers.map((number, rowIndex) => (
+          <div key={`toTry-${number}`} className="cell-toTry">
             {number}
-            {/* <Circle />
-            <Circle />
-            <Circle />
-            <Circle /> */}
-            <EmptyCircle />
-            <EmptyCircle />
-            <EmptyCircle />
-            <EmptyCircle />
+            {cells[rowIndex].map((cell, cellIndex) => (
+              <div
+                key={`cell-${rowIndex}-${cellIndex}`}
+                onClick={() => handleClick(rowIndex, cellIndex)}
+              >
+                {cell.active ? (
+                  <Circle color={cell.color} />
+                ) : (
+                  <EmptyCircle color={color} />
+                )}
+              </div>
+            ))}
           </div>
         ))}
       </div>
