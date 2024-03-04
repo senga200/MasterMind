@@ -7,8 +7,9 @@ import AppContext from "./Context";
 
 function App() {
   const [appState, dispatch] = useReducer(reducer, {
-    selectedColor: "",
-    test: true,
+    selectedColor: [],
+    selectedColors: [],
+    secretCode: [],
   });
   return (
     <AppContext.Provider value={{ appState, dispatch }}>

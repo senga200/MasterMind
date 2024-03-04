@@ -16,6 +16,8 @@ function SecretCode() {
   ];
   const [secretCode, setSecretCode] = useState([]);
 
+  console.log("secretCode", secretCode);
+
   useEffect(() => {
     const newSecretCode = [];
     for (let i = 0; i < 4; i++) {

@@ -93,11 +93,12 @@ h1 {
   box-shadow: rgba(0, 0, 0, 0.648) 0px 8px 15px;
   transform: scale(1.15);
   transition: 0.3s;
-  cursor: pointer;
+  cursor: grab;
 }
 
-.circle-container:active {
-  transform: scale(1.05);
+.circle-container:focus {
+  transform: scale(1.1);
+
   transition: 0.3s;
   border: #000000 5px solid;
 

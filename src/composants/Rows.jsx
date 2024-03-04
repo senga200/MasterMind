@@ -6,20 +6,10 @@ import { useAppContext } from "../Context";
 import { useState } from "react";
 
 function Rows({ color }) {
-  // const colors = [
-  //   "#94000D",
-  //   "blue",
-  //   "green",
-  //   "yellow",
-  //   "#FB4901",
-  //   "#4C4C4C",
-  //   "white",
-  //   "#D810AD",
-  // ];
-  const numbers = Array.from({ length: 10 }, (_, index) => index + 1);
   const { appState, dispatch } = useAppContext();
-  //récupérer la couleur gardée dans le state
-  // Initialiser l'état pour gérer 10 lignes de 4 cellules chacune
+  //const [selectedColors, setSelectedColors] = useState([]);
+
+  const numbers = Array.from({ length: 10 }, (_, index) => index + 1);
   const [cells, setCells] = useState(
     Array.from({ length: 10 }, () => Array(4).fill(false))
   );
@@ -38,14 +28,19 @@ function Rows({ color }) {
           : row
       )
     );
-
-    //afficher la couleur gardée dans le state sur la cellule cliquée
     dispatch({ type: "SET_SELECTED_COLOR", payload: color });
+    // Mettre à jour l'état selectedColors en utilisant l'état actuel
+    const updatedSelectedColors = [
+      ...appState.selectedColors,
+      appState.selectedColor,
+    ];
+    dispatch({ type: "SET_SELECTED_COLORS", payload: updatedSelectedColors });
 
-    console.log("color cell" + appState.selectedColor);
-    console.log("rowIndex" + rowIndex);
-    console.log("cellIndex" + cellIndex);
+    console.log("color cell : " + appState.selectedColor);
+    console.log("rowIndex : " + rowIndex);
+    console.log("cellIndex : " + cellIndex);
   };
+
   return (
     <div className="rows-container">
       <div className="rows-toTry">

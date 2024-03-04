@@ -1,4 +1,5 @@
 import React from "react";
+//import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function EmptyCircle() {
   const border = `5px solid  #aa663b`;
