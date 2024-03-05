@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(JSON.stringify(state, null, 2));
+  //  console.log(JSON.stringify(state, null, 2));
   switch (action.type) {
     case "SET_SELECTED_COLOR":
       return {

@@ -85,6 +85,7 @@ h1 {
   height: 50px;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* position: absolute;*/
 
 
 }
@@ -106,6 +107,11 @@ h1 {
 
 /*********** ROW TO TRY ************/
 
+.rows-toTry {
+  border: solid red 1px;
+  /*position: absolute;*/
+}
+
 .cell-toTry {
   display: flex;
   align-items: center;
@@ -115,6 +121,7 @@ h1 {
 
 
 .emptyCircle-container {
+  /*position: absolute;*/
   width: 40px;
   height: 40px;
   border-radius: 50%;

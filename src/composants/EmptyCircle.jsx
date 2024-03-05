@@ -1,7 +1,7 @@
 import React from "react";
 //import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-function EmptyCircle() {
+function EmptyCircle({ onDrop, onDragOver }) {
   const border = `5px solid  #aa663b`;
   const backgroundColor = `#51311d`;
 
@@ -12,6 +12,8 @@ function EmptyCircle() {
         border: border,
         backgroundColor: backgroundColor,
       }}
+      onDrop={(e) => onDrop(e)}
+      onDragOver={(e) => onDragOver(e)}
     ></div>
   );
 }
